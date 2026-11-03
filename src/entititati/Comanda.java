@@ -1,17 +1,20 @@
 package entititati;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Comanda {
     private final int id;
+    LocalDateTime dataOra;
     private int idMasa;
-    private List<ElementComanda> listaProduse;
+    private List<ElementComanda> listaElemente;
     private StareComanda stareComanda;
 
-    public Comanda(int id, int idMasa, List<ElementComanda> listaProduse) {
+    public Comanda(int id, LocalDateTime dataOra, int idMasa, List<ElementComanda> listaElemente) {
         this.id = id;
+        this.dataOra = dataOra;
         this.idMasa = idMasa;
-        this.listaProduse = listaProduse;
+        this.listaElemente = listaElemente;
         stareComanda = StareComanda.INREGISTRATA;
     }
 
@@ -28,16 +31,30 @@ public class Comanda {
         return this;
     }
 
-    public List<ElementComanda> getListaProduse() {
-        return listaProduse;
+    public List<ElementComanda> getListaElemente() {
+        return listaElemente;
     }
 
-    public Comanda setListaProduse(List<ElementComanda> listaProduse) {
-        this.listaProduse = listaProduse;
+    public Comanda setListaElemente(List<ElementComanda> listaElemente) {
+        this.listaElemente = listaElemente;
         return this;
     }
 
-    public StareComanda getStareComanda() {
-        return stareComanda;
+    public LocalDateTime getDataOra() {
+        return dataOra;
+    }
+
+    public Comanda setDataOra(LocalDateTime dataOra) {
+        this.dataOra = dataOra;
+        return this;
+    }
+
+    public double getValoareTotala()
+    {
+        if(this.listaElemente == null || this.listaElemente.isEmpty())
+        {
+            return 0.0;
+        }
+        return this.listaElemente.stream().mapToDouble(ElementComanda::getSubtotal).sum();
     }
 }
