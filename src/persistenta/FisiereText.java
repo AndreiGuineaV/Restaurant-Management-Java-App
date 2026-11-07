@@ -1,11 +1,10 @@
 package persistenta;
 
-
-
 import entititati.CategorieProdus;
 import entititati.Comanda;
 import entititati.ElementComanda;
 import entititati.Produs;
+import entititati.StareComanda;
 import exceptii.DateInvalideException;
 import exceptii.ProdusInexistentException;
 
@@ -14,12 +13,28 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
+/**
+ * Gestioneaza citirea si salvarea datelor in format text delimitat prin punct si virgula.
+ */
 public class FisiereText {
 
     private static final String SEPARATOR_CAMPURI = ";";
     private static final String SEPARATOR_ELEMENTE = ",";
     private static final String SEPARATOR_PRODUS_CANTITATE = ":";
 
+    /**
+     * Constructor implicit.
+     */
+    public FisiereText() {
+    }
+
+    /**
+     * Citeste produsele din fisierul text specificat.
+     * @param caleFisier calea catre fisierul cu produse
+     * @return un map cu produsele indexate dupa ID
+     * @throws IOException daca apar erori la citirea fisierului
+     * @throws DateInvalideException daca formatul datelor este incorect
+     */
     public Map<Integer, Produs> citesteProduse(String caleFisier) throws IOException, DateInvalideException {
         Map<Integer, Produs> catalog = new HashMap<>();
         File fisier = new File(caleFisier);
@@ -44,6 +59,10 @@ public class FisiereText {
                     throw new DateInvalideException("Linie incompleta la linia " + numarLinie + " in " + caleFisier);
                 }
 
+                if (parti[0].trim().equalsIgnoreCase("id")) {
+                    continue;
+                }
+
                 try {
                     int id = Integer.parseInt(parti[0].trim());
                     String denumire = parti[1].trim();
@@ -65,8 +84,19 @@ public class FisiereText {
         return catalog;
     }
 
+    /**
+     * Salveaza colectia de produse in fisierul text specificat.
+     * @param caleFisier calea catre fisier
+     * @param produse colectia de produse
+     * @throws IOException daca apar erori la scriere
+     */
     public void salveazaProduse(String caleFisier, Collection<Produs> produse) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caleFisier))) {
+        File fisier = new File(caleFisier);
+        File parinte = fisier.getParentFile();
+        if (parinte != null && !parinte.exists()) {
+            parinte.mkdirs();
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fisier))) {
             for (Produs p : produse) {
                 String linie = String.join(SEPARATOR_CAMPURI,
                         String.valueOf(p.getId()),
@@ -80,6 +110,15 @@ public class FisiereText {
         }
     }
 
+    /**
+     * Citeste comenzile dintr-un fisier text si le asociaza cu produsele existente in catalog.
+     * @param caleFisier calea catre fisierul cu comenzi
+     * @param catalogProduse catalogul de produse incarcat in memorie
+     * @return lista de comenzi citite
+     * @throws IOException daca apar erori la citire
+     * @throws DateInvalideException daca formatul datelor este incorect
+     * @throws ProdusInexistentException daca o comanda face referire la un produs inexistent
+     */
     public List<Comanda> citesteComenzi(String caleFisier, Map<Integer, Produs> catalogProduse)
             throws IOException, DateInvalideException, ProdusInexistentException {
 
@@ -106,6 +145,10 @@ public class FisiereText {
                     throw new DateInvalideException("Format invalid comanda la linia " + numarLinie);
                 }
 
+                if (parti[0].trim().equalsIgnoreCase("id")) {
+                    continue;
+                }
+
                 try {
                     int idComanda = Integer.parseInt(parti[0].trim());
                     LocalDateTime dataOra = LocalDateTime.parse(parti[1].trim());
@@ -115,6 +158,9 @@ public class FisiereText {
                     String[] tokeniElemente = parti[3].trim().split(SEPARATOR_ELEMENTE);
 
                     for (String token : tokeniElemente) {
+                        token = token.trim();
+                        if (token.isEmpty()) continue;
+
                         String[] pereche = token.split(SEPARATOR_PRODUS_CANTITATE);
                         if (pereche.length != 2) {
                             throw new DateInvalideException("Format invalid element comanda: " + token);
@@ -131,7 +177,16 @@ public class FisiereText {
                         elemente.add(new ElementComanda(produs, cantitate));
                     }
 
-                    comenzi.add(new Comanda(idComanda, dataOra, idMasa, elemente));
+                    StareComanda stare = StareComanda.INREGISTRATA;
+                    if (parti.length >= 6) {
+                        try {
+                            stare = StareComanda.valueOf(parti[5].trim().toUpperCase());
+                        } catch (IllegalArgumentException ignored) {
+                            stare = StareComanda.INREGISTRATA;
+                        }
+                    }
+
+                    comenzi.add(new Comanda(idComanda, dataOra, idMasa, elemente, stare));
 
                 } catch (NumberFormatException | DateTimeParseException e) {
                     throw new DateInvalideException("Eroare de conversie date comanda la linia " + numarLinie + ": " + e.getMessage());
@@ -141,8 +196,19 @@ public class FisiereText {
         return comenzi;
     }
 
+    /**
+     * Salveaza lista de comenzi in fisierul text specificat.
+     * @param caleFisier calea catre fisier
+     * @param comenzi lista de comenzi de salvat
+     * @throws IOException daca apar erori la scriere
+     */
     public void salveazaComenzi(String caleFisier, List<Comanda> comenzi) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caleFisier))) {
+        File fisier = new File(caleFisier);
+        File parinte = fisier.getParentFile();
+        if (parinte != null && !parinte.exists()) {
+            parinte.mkdirs();
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fisier))) {
             for (Comanda c : comenzi) {
                 StringBuilder sbElemente = new StringBuilder();
                 List<ElementComanda> elemente = c.getListaElemente();
@@ -161,11 +227,29 @@ public class FisiereText {
                         c.getDataOra().toString(),
                         String.valueOf(c.getIdMasa()),
                         sbElemente.toString(),
-                        String.valueOf(c.getValoareTotala())
+                        String.valueOf(c.getValoareTotala()),
+                        c.getStareComanda().name()
                 );
                 writer.write(linie);
                 writer.newLine();
             }
+        }
+    }
+
+    /**
+     * Exporta un text complet de raport intr-un fisier specificat.
+     * @param caleFisier calea catre fisierul de destinatie
+     * @param continutRaport textul raportului
+     * @throws IOException daca apar erori la scriere
+     */
+    public void exportaRaportText(String caleFisier, String continutRaport) throws IOException {
+        File fisier = new File(caleFisier);
+        File parinte = fisier.getParentFile();
+        if (parinte != null && !parinte.exists()) {
+            parinte.mkdirs();
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fisier))) {
+            writer.write(continutRaport);
         }
     }
 }

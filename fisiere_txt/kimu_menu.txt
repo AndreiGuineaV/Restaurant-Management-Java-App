@@ -1,0 +1,118 @@
+1;Haemul Pajeon (Pizza Coreeana cu Fructe de Mare);APERITIV;80.0
+2;Mandu (Coltunasi Coreeni 6 buc);APERITIV;42.0
+3;Bossam (Porc cu Kimchi de Ridiche);APERITIV;55.0
+4;Kimchijeon (Pizza Coreeana cu Kimchi);APERITIV;70.0
+5;Tofu Kimchi (Kimchi cu Porc si Tofu);APERITIV;80.0
+6;Yukhoe (Tartar de Vita cu Trufe si Caviar);APERITIV;90.0
+7;Useol (Limba de Vaca Fiarta);APERITIV;80.0
+8;Chilli Shrimp Tempura;APERITIV;69.0
+9;Korean Course 1;FEL_PRINCIPAL;120.0
+10;Korean Course 2;FEL_PRINCIPAL;170.0
+11;Vita Wagyu Fillet 100g;FEL_PRINCIPAL;150.0
+12;Vita Wagyu Antricot 100g;FEL_PRINCIPAL;100.0
+13;Set Anghila cu Sos Unagi (Unadon);FEL_PRINCIPAL;100.0
+14;Kimu Sushi Set for 2;FEL_PRINCIPAL;260.0
+15;Salmon Set;FEL_PRINCIPAL;125.0
+16;Nigiri Set;FEL_PRINCIPAL;85.0
+17;Sashimi Set;FEL_PRINCIPAL;150.0
+18;Spicy Tartar Set;FEL_PRINCIPAL;75.0
+19;Hosomaki Set;FEL_PRINCIPAL;57.0
+20;Kimu Maki Set;FEL_PRINCIPAL;125.0
+21;Vegetarian Sushi Set;FEL_PRINCIPAL;74.0
+22;California Roll;FEL_PRINCIPAL;48.0
+23;Salmon California Roll;FEL_PRINCIPAL;52.0
+24;Tuna California Roll;FEL_PRINCIPAL;56.0
+25;Vegetarian Maki;FEL_PRINCIPAL;37.0
+26;Spicy Tuna Roll;FEL_PRINCIPAL;57.0
+27;Spicy Salmon Roll;FEL_PRINCIPAL;53.0
+28;Avocado Hosomaki;FEL_PRINCIPAL;25.0
+29;Cucumber Hosomaki;FEL_PRINCIPAL;23.0
+30;Salmon Hosomaki;FEL_PRINCIPAL;30.0
+31;Tuna Hosomaki;FEL_PRINCIPAL;32.0
+32;Tofu Maki;FEL_PRINCIPAL;48.0
+33;Tuna Cover Roll;FEL_PRINCIPAL;69.0
+34;Salmon Cover Roll;FEL_PRINCIPAL;64.0
+35;Crunch Salmon Cream Cheese Roll;FEL_PRINCIPAL;95.0
+36;Cream Cheese Salmon Cover Roll;FEL_PRINCIPAL;80.0
+37;Beef Cover Roll;FEL_PRINCIPAL;80.0
+38;Spicy Salmon Tempura Maki;FEL_PRINCIPAL;60.0
+39;Unaghi Roll;FEL_PRINCIPAL;85.0
+40;Tempura Maki;FEL_PRINCIPAL;75.0
+41;Hamachi Roll;FEL_PRINCIPAL;70.0
+42;Hotategai Maki;FEL_PRINCIPAL;110.0
+43;Kimu Roll;FEL_PRINCIPAL;75.0
+44;Spicy Tuna Tempura Maki;FEL_PRINCIPAL;65.0
+45;Kimu Special Roll;FEL_PRINCIPAL;90.0
+46;Salmon Nigiri (2 buc);FEL_PRINCIPAL;23.0
+47;Bluefin Tuna Nigiri (2 buc);FEL_PRINCIPAL;26.0
+48;Hamachi Nigiri (2 buc);FEL_PRINCIPAL;25.0
+49;Marinated Ebi Nigiri (2 buc);FEL_PRINCIPAL;33.0
+50;Otoro (Tuna Belly) Nigiri (2 buc);FEL_PRINCIPAL;36.0
+51;Eel Nigiri (2 buc);FEL_PRINCIPAL;33.0
+52;Saint-Jacques Nigiri (2 buc);FEL_PRINCIPAL;48.0
+53;Bluefin Tuna Sashimi (3 buc);FEL_PRINCIPAL;39.0
+54;Salmon Sashimi (3 buc);FEL_PRINCIPAL;32.0
+55;Hamachi Sashimi (3 buc);FEL_PRINCIPAL;39.0
+56;Tuna Otoro (Belly) Sashimi (3 buc);FEL_PRINCIPAL;47.0
+57;Unaghi Eel Sashimi (3 buc);FEL_PRINCIPAL;44.0
+58;Saint-Jacques Sashimi (3 buc);FEL_PRINCIPAL;49.0
+59;Pui Prajit cu Alune (Kanpungi);FEL_PRINCIPAL;60.0
+60;Kimu Special Pui Acrisor si Picant;FEL_PRINCIPAL;75.0
+61;Pui Prajit Coreean (Yangneom Chicken);FEL_PRINCIPAL;65.0
+62;Pui la Aburi (Andong Style Jjimdak);FEL_PRINCIPAL;70.0
+63;Pui Picant la Aburi (Dak Bokkeum Tang);FEL_PRINCIPAL;70.0
+64;Pui Picant la Tigaie (Dak Galbi);FEL_PRINCIPAL;65.0
+65;Vita la Aburi (Galbi Jjim);FEL_PRINCIPAL;70.0
+66;Vita la Tigaie cu Legume (Bulgogi);FEL_PRINCIPAL;60.0
+67;Coaste de Vita la Gratar (L.A. Galbi);FEL_PRINCIPAL;65.0
+68;Bibimbap cu Tartar de Vita si Ou Crud;FEL_PRINCIPAL;70.0
+69;Porc Prajit Dulce Acrisor (Tangsuyuk);FEL_PRINCIPAL;75.0
+70;Porc Picant la Tigaie (Jeyuk Bokkeum);FEL_PRINCIPAL;70.0
+71;Coaste de Porc la Gratar (Doejigalbi);FEL_PRINCIPAL;70.0
+72;3 Feluri de Peste (Saengsunguyi);FEL_PRINCIPAL;80.0
+73;Salata Calamar Picant (Ojingomuchim);FEL_PRINCIPAL;75.0
+74;Calamar Picant la Tigaie (Ojingo Bokeum);FEL_PRINCIPAL;75.0
+75;Poke Bowl cu Sashimi;FEL_PRINCIPAL;70.0
+76;Fructe de Mare la Aburi (Haemul Jjim);FEL_PRINCIPAL;90.0
+77;Bibimbap de Templu si Mini Supa Miso;FEL_PRINCIPAL;70.0
+78;Egg Topping;FEL_PRINCIPAL;5.0
+79;Beef Topping;FEL_PRINCIPAL;10.0
+80;Orez Simplu;FEL_PRINCIPAL;15.0
+81;Orez cu Legume;FEL_PRINCIPAL;23.0
+82;Orez cu Ou;FEL_PRINCIPAL;22.0
+83;Orez cu Legume si Ou;FEL_PRINCIPAL;25.0
+84;Orez cu Kimchi (Kimchi Bokkeum Bap);FEL_PRINCIPAL;25.0
+85;Noodles de Hrisca Rece (Memil Soba);FEL_PRINCIPAL;70.0
+86;Yakisoba cu Vita;FEL_PRINCIPAL;60.0
+87;Yakisoba cu Pui;FEL_PRINCIPAL;50.0
+88;Yakisoba cu Creveti;FEL_PRINCIPAL;60.0
+89;Yakisoba cu Legume;FEL_PRINCIPAL;40.0
+90;Supa cu Fidea Somyun (Janchiguksu);FEL_PRINCIPAL;60.0
+91;Noodles Picanti Reci (Bibimnaengmyun);FEL_PRINCIPAL;65.0
+92;Supa Rece cu Noodles (Mulnaengmyun);FEL_PRINCIPAL;65.0
+93;Supa Picanta cu Fructe de Mare (Jjamppong);FEL_PRINCIPAL;80.0
+94;Noodles cu Sos de Fasole Neagra (Jjajangmyun);FEL_PRINCIPAL;70.0
+95;Vermicelli cu Legume (Japchae);FEL_PRINCIPAL;60.0
+96;Noodles cu Kimchi (Kimchi Bibimguksu);FEL_PRINCIPAL;65.0
+97;Apa Plata 330ml;BAUTURA;15.0
+98;Apa Plata 750ml;BAUTURA;24.0
+99;Apa Minerala 330ml;BAUTURA;15.0
+100;Apa Minerala 750ml;BAUTURA;24.0
+101;Coca-Cola 330ml;BAUTURA;17.0
+102;Coca-Cola Zero 330ml;BAUTURA;17.0
+103;Fanta 330ml;BAUTURA;17.0
+104;Sprite 330ml;BAUTURA;17.0
+105;Schweppes 330ml (Lemon/Pink/Mandarine);BAUTURA;17.0
+106;Limonada Simpla;BAUTURA;23.0
+107;Limonada cu Aroma (Capsuni/Fructul Pasiunii/Mango/Ananas/Lychee);BAUTURA;29.0
+108;Limonada cu Menta;BAUTURA;26.0
+109;Fresh Portocale;BAUTURA;30.0
+110;Limonada Menta si Ghimbir;BAUTURA;30.0
+111;Soju Jinro Retro 16% 330ml;BAUTURA;60.0
+112;Soju Fresh 16.5% 330ml;BAUTURA;60.0
+113;Soju Original 20.1% 330ml;BAUTURA;60.0
+114;Soju Aroma (Prune/Grapefruit/Strawberry/Green Grape/Peach);BAUTURA;60.0
+115;Premium Jinro 25% 375ml;BAUTURA;60.0
+116;Makgeolli Original 6% 750ml;BAUTURA;33.0
+117;Makgeolli Citron 3% 750ml;BAUTURA;33.0
+118;Makgeolli Chestnut 6% 750ml;BAUTURA;33.0
